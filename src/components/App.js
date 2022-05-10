@@ -3,20 +3,20 @@ import Home from "./Home";
 
 function App() {
 
-  const [toys, setToys] = useState([])
+  const [flatsource, setFlatsource] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/toys`)
+    fetch(`${process.env.REACT_APP_API_URL}/flatsource`)
     .then(response => response.json())
-    .then(data => setToys(data))
+    .then(data => setFlatsource(data))
   },[])
 
-  console.log(process.env.REACT_APP_API_URL)
+  console.log(flatsource)
   
 
   return (
     <div className="App">
-      <Home />   
+      <Home resources={flatsource} />   
     </div>
   );
 }
