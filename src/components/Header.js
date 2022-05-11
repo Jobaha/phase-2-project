@@ -7,10 +7,12 @@ import Search from "./Search";
 function Header() {
 
     return(
-        <>          
+        <>       
+                <div className="header">  
                 <Link className="header" to="/phase1" >
                     <h1>//Flatsource</h1>
                 </Link>
+                </div>  
 
             <nav className="navigation">
                 <NavLink className="button" to="/phase1">
