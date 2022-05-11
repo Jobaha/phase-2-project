@@ -26,20 +26,20 @@ function App() {
     <div className="App">
       <Header />
           
-            <Switch>            
+            <Switch>
               <Route path="/phase1">        
                 <Phase1 resources={flatsource} />
               </Route>
-              <Route exact path="/phase2">                                 
+              <Route path="/phase2">                                 
                 <Phase2  resources={flatsource} />
               </Route>
-              <Route exact path="/phase3">            
+              <Route path="/phase3">            
                 <Phase3  resources={flatsource} />
               </Route>
-              <Route exact path="/phase4">                         
+              <Route path="/phase4">                         
                 <Phase4  resources={flatsource} />
               </Route>
-              <Route exact path="/phase5">
+              <Route path="/phase5">
                 <Phase5  resources={flatsource} />
               </Route>
             </Switch>
