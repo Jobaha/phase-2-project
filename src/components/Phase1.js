@@ -1,16 +1,18 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 
 function Phase1({ resources }) {
+   
 
-    const phase1 = resources.filter((resource) => resource.phase == 1)
+    const phase1 = resources.filter((resource) => resource.phase === 1)
     
-    const render = phase1.map((data) => <a  href="#">{data.title}</a> )
+    const sideBarLink = phase1.map((data) => <Link to=".">{data.title}</Link> )
 
     return ( 
         <div>
-            {render}
+            {sideBarLink}
+            <p>Hello</p>
         </div>
     
 )}
