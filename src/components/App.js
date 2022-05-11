@@ -5,7 +5,7 @@ import Phase2 from "./Phase2";
 import Phase3 from "./Phase3";
 import Phase4 from "./Phase4";
 import Phase5 from "./Phase5";
-import Footer from "./Footer";
+import Form from "./Form";
 import Header from "./Header";
 
 function App() {
@@ -20,6 +20,10 @@ function App() {
   },[])
 
   console.log(flatsource)
+
+  const addNewItem = (newItem) => {
+    setFlatsource([...flatsource,newItem])
+  }
   
 
   return (
@@ -44,7 +48,7 @@ function App() {
               </Route>
             </Switch>
                
-        <Footer />   
+        <Form />   
     </div>
   );
 };
