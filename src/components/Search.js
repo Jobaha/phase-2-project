@@ -4,7 +4,7 @@ function Search () {
 
     return(
         
-        <form>
+        <form className="form">
             <input placeholder="Search here..."></input>
             <button>search</button>
         </form>
