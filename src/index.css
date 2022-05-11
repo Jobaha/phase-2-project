@@ -19,7 +19,7 @@ code {
 .header {
   text-align: center;
   font-size: 120%;
-  background-color:red;
+  background-color:rgb(1, 1, 31);
   padding-bottom: 1px;
   padding-top: 1px;
 }
