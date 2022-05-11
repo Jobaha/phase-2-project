@@ -9,20 +9,26 @@ function Form( {addNewItem} ) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const obj = {
+            phase: phase,
+            title: title,
+            link: url,
+            description: description
+        }
+        console.log(obj)
+
         fetch(`${process.env.REACT_APP_API_URL}/flatsource`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                phase: parseInt(phase),
-                title: title,
-                link: url,
-                description: description
-            })
-            })
-          .then(res => res.json())
-          .then(newItem => addNewItem(newItem))
+            body: JSON.stringify(obj)
+        })
+        .then(res => res.json())
+        .then(console.log)
+        // .then(newItem => addNewItem(newItem))
+
         setTitle('')
         setUrl('')
         setDescription('')

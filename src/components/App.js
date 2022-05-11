@@ -12,6 +12,7 @@ function App() {
 
   
   const [flatsource, setFlatsource] = useState([])
+  const [search , setSearch] = useState('')
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/flatsource`)
@@ -24,31 +25,36 @@ function App() {
   const addNewItem = (newItem) => {
     setFlatsource([...flatsource,newItem])
   }
-  
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const filteredSources = flatsource.filter(source => source.title.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <div className="App">
-      <Header />
+      <Header search={search} handleSearch={handleSearch}/>
           
             <Switch>
               <Route path="/phase1">        
-                <Phase1 resources={flatsource} />
+                <Phase1 resources={filteredSources} />
               </Route>
               <Route path="/phase2">                                 
-                <Phase2  resources={flatsource} />
+                <Phase2  resources={filteredSources} />
               </Route>
               <Route path="/phase3">            
-                <Phase3  resources={flatsource} />
+                <Phase3  resources={filteredSources} />
               </Route>
               <Route path="/phase4">                         
-                <Phase4  resources={flatsource} />
+                <Phase4  resources={filteredSources} />
               </Route>
               <Route path="/phase5">
-                <Phase5  resources={flatsource} />
+                <Phase5  resources={filteredSources} />
               </Route>
             </Switch>
                
-        <Form />   
+        <Form addNewItem={addNewItem}/>   
     </div>
   );
 };
