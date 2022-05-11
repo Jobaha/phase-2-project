@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "./Search";
 
 
@@ -7,32 +7,31 @@ import Search from "./Search";
 function Header() {
 
     return(
-        <header>
-            <nav>
-                <Link className="header" to="/phase1">
+        <>          
+                <div className="header" >
                     <h1>//Flatsource</h1>
-                </Link>
+                </div>
 
-            <div className="navigation">
-                <NavLink className="button" exact to="/phase1">
+            <nav className="navigation">
+                <Link className="button" to="/phase1">
                     Phase 1
-                </NavLink>
-                <NavLink className="button" exact to="/phase2">
+                </Link>
+                <Link className="button" to="/phase2">
                     Phase 2
-                </NavLink>
-                <NavLink className="button" exact to="/phase3">
+                </Link>
+                <Link className="button" to="/phase3">
                     Phase 3
-                </NavLink>
-                <NavLink className="button" exact to="/phase4">
+                </Link>
+                <Link className="button" to="/phase4">
                     Phase 4
-                </NavLink>
-                <NavLink className="button" exact to="/phase5">
+                </Link>
+                <Link className="button" to="/phase5">
                     Phase 5
-                </NavLink>
-            <Search />
-            </div>
+                </Link>
             </nav>
-        </header>
+            <Search />
+            
+        </>
         
         
 
