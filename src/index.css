@@ -41,7 +41,7 @@ code {
   background-color: rgb(14, 230, 246);
 }
 
-.Phase > .Preview {
+.Phase {
   color: rgb(14, 230, 246);
   display: block;
   padding: 10px;
