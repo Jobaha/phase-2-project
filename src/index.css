@@ -54,7 +54,11 @@ code {
 
 .Preview {
   text-align: center;
+  color: black;
+}
 
+.Preview>div {
+    display: inline-block;
 }
 
 
