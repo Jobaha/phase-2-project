@@ -5,13 +5,14 @@ import Phase2 from "./Phase2";
 import Phase3 from "./Phase3";
 import Phase4 from "./Phase4";
 import Phase5 from "./Phase5";
-import Footer from "./Footer";
+import Form from "./Form";
 import Header from "./Header";
 
 function App() {
 
   
   const [flatsource, setFlatsource] = useState([])
+  const [search , setSearch] = useState('')
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/flatsource`)
@@ -20,31 +21,40 @@ function App() {
   },[])
 
   console.log(flatsource)
-  
+
+  const addNewItem = (newItem) => {
+    setFlatsource([...flatsource,newItem])
+  }
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const filteredSources = flatsource.filter(source => source.title.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <div className="App">
-      <Header />
+      <Header search={search} handleSearch={handleSearch}/>
           
-            <Switch>            
+            <Switch>
               <Route path="/phase1">        
-                <Phase1 resources={flatsource} />
+                <Phase1 resources={filteredSources} />
               </Route>
-              <Route exact path="/phase2">                                 
-                <Phase2  resources={flatsource} />
+              <Route path="/phase2">                                 
+                <Phase2  resources={filteredSources} />
               </Route>
-              <Route exact path="/phase3">            
-                <Phase3  resources={flatsource} />
+              <Route path="/phase3">            
+                <Phase3  resources={filteredSources} />
               </Route>
-              <Route exact path="/phase4">                         
-                <Phase4  resources={flatsource} />
+              <Route path="/phase4">                         
+                <Phase4  resources={filteredSources} />
               </Route>
-              <Route exact path="/phase5">
-                <Phase5  resources={flatsource} />
+              <Route path="/phase5">
+                <Phase5  resources={filteredSources} />
               </Route>
             </Switch>
                
-        <Footer />   
+        <Form addNewItem={addNewItem}/>   
     </div>
   );
 };

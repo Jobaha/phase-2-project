@@ -4,7 +4,7 @@ import Search from "./Search";
 
 
 
-function Header() {
+function Header({ handleSearch, search }) {
 
     return(
         <>       
@@ -31,7 +31,7 @@ function Header() {
                     Phase 5
                 </NavLink>
             </nav>
-            <Search />
+            <Search handleSearch={handleSearch} search={search}/>
             
         </>
         
